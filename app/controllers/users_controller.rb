@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   end
 
   def login
+    def user_doctor
+      @doctors = User.find(params[:id]).doctors
+      render json: { doctors: @doctors }, status: :ok
+    end
     @user = User.find_by(username: params[:username].to_s.downcase)
     if @user
       render json: { user: @user, logged_in: true }

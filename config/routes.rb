@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'reservations/:user_id', to: 'reservations#index'
+      get '/reservations', to: 'reservations#reservation'
       post 'reservations/:user_id', to: 'reservations#create'
       get 'api/v1/doctor/:id', to: 'doctors#show'
       delete 'api/v1/doctors/:id', to: 'doctors#delete'
